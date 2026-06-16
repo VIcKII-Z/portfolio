@@ -1,0 +1,890 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Zoey Zou — ML Engineer, Researcher, Explorer</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,700;0,9..144,900;1,9..144,400;1,9..144,700&family=Caveat:wght@400;700&family=Fira+Code:wght@400;500&family=Noto+Serif+SC:wght@700;900&family=Noto+Sans+SC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --teal: #1B8A8A;
+      --teal-deep: #147070;
+      --gold: #E8C547;
+      --gold-soft: #FFF8DC;
+      --rose: #D4637A;
+      --cream: #fefcf6;
+      --cream-dark: #f8f5ed;
+      --ink: #1A1A2E;
+      --ink-light: #4A4A5A;
+      --ink-faint: #8A8A9A;
+      --dark-panel: #151821;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Noto Sans SC', -apple-system, 'PingFang SC', 'Helvetica Neue', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      color: var(--ink);
+      background: var(--cream);
+    }
+
+    ::selection { background: var(--gold); color: var(--ink); }
+
+    .container { max-width: 1300px; margin: 0 auto; padding: 0 2rem; }
+
+    /* ==================== HERO — Layout #1: Asymmetric Two-Column ==================== */
+    .hero {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: 1fr 0.5fr;
+      align-items: center;
+      gap: 48px;
+      padding: 6rem 2rem 4rem;
+      max-width: 1300px;
+      margin: 0 auto;
+    }
+
+    .hero-text .label-caps {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      color: var(--teal);
+      opacity: 0.7;
+      display: block;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-text h1 {
+      font-family: 'Fraunces', 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: clamp(2.8rem, 6vw, 4.8rem);
+      line-height: 1.1;
+      color: var(--ink);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero-text h1 .gradient-name {
+      background: linear-gradient(135deg, var(--ink) 30%, var(--gold) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero-text .hero-subtitle {
+      font-size: 1.15rem;
+      color: var(--ink-light);
+      max-width: 520px;
+      margin-bottom: 2rem;
+      line-height: 1.8;
+    }
+
+    .hero-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .hero-tags .tag {
+      display: inline-block;
+      padding: 4px 14px;
+      border-radius: 20px;
+      font-size: 0.72rem;
+      font-weight: 500;
+      letter-spacing: 0.02em;
+    }
+    .tag--teal { background: rgba(27,138,138,0.1); color: var(--teal); }
+    .tag--gold { background: rgba(232,197,71,0.2); color: #8a7200; }
+    .tag--rose { background: rgba(212,99,122,0.1); color: var(--rose); }
+
+    .hero-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .hero-visual .avatar-frame {
+      width: clamp(200px, 22vw, 300px);
+      height: clamp(200px, 22vw, 300px);
+      border-radius: 50%;
+      background: linear-gradient(180deg, var(--gold) 0%, var(--ink) 100%);
+      padding: 4px;
+      position: relative;
+    }
+
+    .hero-visual .avatar-frame .avatar-inner {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: var(--cream);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      overflow: hidden;
+    }
+
+    .hero-visual .avatar-frame .avatar-inner img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .gemini-badge {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      background: var(--gold);
+      color: var(--ink);
+      font-family: 'Caveat', cursive;
+      font-size: 0.85rem;
+      font-weight: 700;
+      padding: 4px 12px;
+      border-radius: 20px;
+      transform: rotate(6deg);
+    }
+
+    /* ==================== SECTION BASICS ==================== */
+    .section { padding: clamp(80px, 12vh, 160px) 0; }
+    .section--alt { background: var(--cream-dark); }
+
+    .section-header { margin-bottom: clamp(40px, 6vw, 80px); }
+
+    .section-number {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 3vw, 2rem);
+      color: var(--teal);
+      opacity: 0.3;
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    .section-title {
+      font-family: 'Noto Serif SC', serif;
+      font-weight: 900;
+      font-size: clamp(1.4rem, 3vw, 2.2rem);
+      color: var(--ink);
+    }
+
+    /* ==================== SECTION 2: ABOUT — Layout #2: Sticky Sidebar ==================== */
+    .layout-sticky {
+      display: grid;
+      grid-template-columns: 0.35fr 1fr;
+      gap: clamp(40px, 6vw, 100px);
+      align-items: start;
+    }
+
+    .sticky-side {
+      position: sticky;
+      top: 80px;
+    }
+
+    .about-avatar {
+      width: 100%;
+      max-width: 220px;
+      border-radius: 20px;
+      margin-top: 1.5rem;
+      box-shadow: 0 4px 24px rgba(0,0,0,0.06);
+    }
+
+    .about-content p {
+      font-size: 1rem;
+      color: var(--ink-light);
+      margin-bottom: 1.5rem;
+      line-height: 1.9;
+    }
+
+    .about-content .highlight {
+      background: linear-gradient(to top, rgba(232,197,71,0.35) 45%, transparent 45%);
+      padding: 2px 4px;
+    }
+
+    /* ==================== SECTION 3: EXPERIENCE — Layout #12: Horizontal Scroll Timeline ==================== */
+    .timeline-scroll {
+      display: flex;
+      gap: 1.5rem;
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+      padding-bottom: 2rem;
+      margin: 0 -2rem;
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+
+    .timeline-scroll::-webkit-scrollbar { height: 6px; }
+    .timeline-scroll::-webkit-scrollbar-track { background: transparent; }
+    .timeline-scroll::-webkit-scrollbar-thumb { background: rgba(27,138,138,0.2); border-radius: 3px; }
+
+    .timeline-card {
+      flex: 0 0 340px;
+      scroll-snap-align: start;
+      background: #fff;
+      border-radius: 16px;
+      padding: clamp(24px, 3vw, 36px);
+      box-shadow: 0 4px 20px rgba(0,0,0,.06);
+      position: relative;
+    }
+
+    .timeline-card .year {
+      font-family: 'Fraunces', serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      color: var(--teal);
+      opacity: 0.5;
+      display: block;
+      margin-bottom: 0.5rem;
+    }
+
+    .timeline-card .role {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 4px;
+    }
+
+    .timeline-card .company {
+      font-size: 0.82rem;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 12px;
+    }
+
+    .timeline-card .desc {
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      line-height: 1.7;
+    }
+
+    .timeline-card .card-pill {
+      display: inline-block;
+      padding: 2px 10px;
+      border-radius: 20px;
+      font-size: 0.65rem;
+      font-weight: 500;
+      margin-top: 12px;
+    }
+    .card-pill--teal { background: rgba(27,138,138,0.1); color: var(--teal); }
+    .card-pill--gold { background: rgba(232,197,71,0.2); color: #8a7200; }
+    .card-pill--rose { background: rgba(212,99,122,0.1); color: var(--rose); }
+
+    /* ==================== SECTION 4: DARK PANEL — Layout #6: Full-Width Dark ==================== */
+    .dark-section {
+      background: var(--dark-panel);
+      color: #e2e8f0;
+      padding: clamp(60px, 8vh, 120px) 0;
+    }
+
+    .dark-section .pull-quote {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: clamp(1.4rem, 3.5vw, 2.4rem);
+      line-height: 1.5;
+      max-width: 800px;
+      position: relative;
+      padding-left: 48px;
+    }
+
+    .dark-section .pull-quote::before {
+      content: '\201C';
+      position: absolute;
+      left: 0;
+      top: -10px;
+      font-family: 'Fraunces', serif;
+      font-size: 4rem;
+      color: var(--gold);
+      opacity: 0.6;
+      line-height: 1;
+    }
+
+    .dark-section .pull-quote .author {
+      display: block;
+      margin-top: 1.5rem;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.75rem;
+      font-style: normal;
+      color: var(--gold);
+      opacity: 0.7;
+    }
+
+    /* ==================== SECTION 5: SKILLS — Layout #3: Three-Column Grid ==================== */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: clamp(20px, 2.5vw, 32px);
+    }
+
+    .feature-card {
+      position: relative;
+      padding: 28px 24px;
+      background: #fff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+    }
+
+    .feature-card .card-number {
+      position: absolute;
+      top: -10px;
+      right: 10px;
+      font-family: 'Fraunces', serif;
+      font-size: 5.5rem;
+      font-weight: 900;
+      line-height: 1;
+      pointer-events: none;
+    }
+    .feature-card:nth-child(3n+1) .card-number { color: rgba(27,138,138,0.08); }
+    .feature-card:nth-child(3n+2) .card-number { color: rgba(232,197,71,0.15); }
+    .feature-card:nth-child(3n) .card-number { color: rgba(212,99,122,0.1); }
+
+    .feature-card .card-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .feature-card .card-desc {
+      font-size: 0.82rem;
+      color: var(--ink-light);
+      position: relative;
+      line-height: 1.7;
+    }
+
+    /* ==================== SECTION 6: PUBLICATIONS — Layout #4: Vertical Step Line ==================== */
+    .pub-list {
+      display: flex;
+      flex-direction: column;
+      gap: clamp(24px, 3vw, 40px);
+      padding-left: 60px;
+      position: relative;
+    }
+
+    .pub-list::before {
+      content: '';
+      position: absolute;
+      left: 22px;
+      top: 20px;
+      bottom: 20px;
+      width: 2px;
+      border-left: 2px dashed var(--gold);
+    }
+
+    .pub-item {
+      position: relative;
+    }
+
+    .pub-item .pub-dot {
+      position: absolute;
+      left: -60px;
+      top: 4px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--teal);
+    }
+
+    .pub-item .pub-venue {
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: var(--teal);
+      font-weight: 500;
+      margin-bottom: 4px;
+    }
+
+    .pub-item .pub-title {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* ==================== SECTION 7: BEYOND WORK — Layout #10: Auto-fill Grid ==================== */
+    .life-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .life-card {
+      background: #fff;
+      border-radius: 14px;
+      padding: 24px 20px;
+      box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+      text-align: center;
+    }
+
+    .life-card .life-emoji {
+      font-size: 2.4rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .life-card .life-label {
+      font-family: 'Noto Serif SC', serif;
+      font-size: 0.95rem;
+      font-weight: 700;
+      margin-bottom: 6px;
+    }
+
+    .life-card .life-desc {
+      font-size: 0.78rem;
+      color: var(--ink-light);
+    }
+
+    .life-card--highlight {
+      border: 2px solid var(--gold);
+      background: linear-gradient(135deg, #fff 60%, var(--gold-soft) 100%);
+      position: relative;
+    }
+
+    .life-badge {
+      display: inline-block;
+      margin-top: 8px;
+      padding: 3px 12px;
+      border-radius: 20px;
+      font-family: 'Caveat', cursive;
+      font-size: 0.85rem;
+      font-weight: 700;
+      background: var(--gold);
+      color: var(--ink);
+      transform: rotate(-2deg);
+    }
+
+    .life-card .life-link {
+      display: inline-block;
+      margin-top: 10px;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.7rem;
+      color: var(--teal);
+      text-decoration: none;
+      padding: 3px 10px;
+      border-radius: 20px;
+      background: rgba(27,138,138,0.08);
+      transition: background 0.2s;
+    }
+
+    .life-card .life-link:hover {
+      background: rgba(27,138,138,0.18);
+    }
+
+    /* ==================== CTA / FOOTER ==================== */
+    .cta-section {
+      text-align: center;
+      padding: clamp(80px, 12vh, 160px) 2rem;
+    }
+
+    .cta-section h2 {
+      font-family: 'Noto Serif SC', serif;
+      font-size: clamp(1.6rem, 4vw, 2.6rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta-section p {
+      font-size: 1rem;
+      color: var(--ink-light);
+      margin-bottom: 2rem;
+    }
+
+    .contact-form {
+      max-width: 480px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 14px 18px;
+      border: 2px solid rgba(27,138,138,0.15);
+      border-radius: 12px;
+      font-family: inherit;
+      font-size: 0.92rem;
+      color: var(--ink);
+      background: #fff;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: var(--teal);
+    }
+
+    .contact-form textarea { resize: vertical; }
+
+    .contact-form .cta-button {
+      align-self: center;
+      border: none;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    .cta-button {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 16px 36px;
+      background: var(--teal);
+      color: #fff;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: transform .2s, box-shadow .2s;
+    }
+    .cta-button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(27,138,138,0.3);
+    }
+
+    .footer {
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.75rem;
+      color: var(--ink-faint);
+      font-family: 'Fira Code', monospace;
+    }
+
+    /* ==================== SCROLL REVEAL ==================== */
+    .reveal {
+      opacity: 0;
+      transform: translateY(32px);
+      transition: opacity 0.7s ease, transform 0.7s ease;
+    }
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .reveal-d1 { transition-delay: 0.1s; }
+    .reveal-d2 { transition-delay: 0.2s; }
+    .reveal-d3 { transition-delay: 0.3s; }
+    .reveal-d4 { transition-delay: 0.4s; }
+    .reveal-d5 { transition-delay: 0.5s; }
+
+    /* ==================== RESPONSIVE ==================== */
+    @media (max-width: 900px) {
+      .hero { grid-template-columns: 1fr; text-align: center; padding: 4rem 1.5rem 3rem; }
+      .hero-visual { order: -1; }
+      .hero-text .hero-subtitle { margin: 0 auto 2rem; }
+      .hero-tags { justify-content: center; }
+      .layout-sticky { grid-template-columns: 1fr; }
+      .sticky-side { position: static; }
+      .features-grid { grid-template-columns: 1fr; }
+      .timeline-card { flex: 0 0 85vw; }
+    }
+
+    @media (max-width: 600px) {
+      .hero-text h1 { font-size: 2.2rem; }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ========== HERO ========== -->
+  <section class="hero">
+    <div class="hero-text">
+      <span class="label-caps">Senior ML Engineer · Researcher · Explorer</span>
+      <h1>Hi, I'm <span class="gradient-name">Weijin (Zoey) Zou</span></h1>
+      <p class="hero-subtitle">
+        I build AI systems that power how advertisers reach the right people across LinkedIn's 1.3 billion members.
+        Off the clock, I'm on stage acting, in the mountains skiing, at the piano, or crafting something tiny and beautiful.
+      </p>
+      <div class="hero-tags">
+        <span class="tag tag--teal">ML / LLMs</span>
+        <span class="tag tag--teal">Published Researcher</span>
+        <span class="tag tag--rose">Actress & Producer</span>
+        <span class="tag tag--gold">Nail Artist</span>
+        <span class="tag tag--teal">English Tutor</span>
+        <span class="tag tag--gold">Skier & Pianist</span>
+        <span class="tag tag--rose">Gemini ♊</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="avatar-frame">
+        <div class="avatar-inner">
+          <img src="assets/Avatar.png" alt="Zoey Zou" onerror="this.style.display='none';this.parentNode.textContent='👩‍💻'">
+        </div>
+        <span class="gemini-badge">♊ Gemini</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== ABOUT — Sticky Sidebar ========== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="layout-sticky">
+        <div class="sticky-side reveal">
+          <span class="section-number">01</span>
+          <h2 class="section-title">About Me</h2>
+        </div>
+        <div class="about-content">
+          <p class="reveal reveal-d1">
+            I'm a <span class="highlight">Senior ML Engineer at LinkedIn HQ</span> in Sunnyvale, where I build the AI systems behind how advertisers reach the right audiences. My work spans large-scale recommendation models, LLM-powered audience intelligence, and retrieval systems that serve hundreds of millions of members — turning complex ML research into products that move real business metrics.
+          </p>
+          <p class="reveal reveal-d2">
+            Before LinkedIn, I earned my MS in Data Science from <span class="highlight">Yale University</span>. At Yale's LILY Lab, I published papers at top NLP venues (EMNLP, NAACL) on LLM agents, question answering, and data-to-text generation.
+          </p>
+          <p class="reveal reveal-d3">
+            A Gemini through and through — one half builds ML systems, the other half performs on stage. At <span class="highlight">Feiyu Theater</span> I act, produce, and do makeup & costumes. I also teach English to 10k followers on Douyin, craft press-on nails, chase powder days on the slopes, and play piano when things get too quiet. I believe the best engineers are the ones who never stop being curious about everything outside of engineering.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== EXPERIENCE — Horizontal Scroll Timeline ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-number">02</span>
+        <h2 class="section-title">Experience</h2>
+      </div>
+    </div>
+    <div class="container">
+      <div class="timeline-scroll">
+        <div class="timeline-card reveal reveal-d1">
+          <span class="year">2023–Now</span>
+          <div class="role">Senior ML Engineer</div>
+          <div class="company">LinkedIn · Ads AI</div>
+          <p class="desc">Led multi-task EBR for audience targeting across 1.3B+ members. Built Transformer-based sequence modeling (5% AUC lift, 15% CPC reduction). Shipped bid-aware matching, LLM cold-start targeting, and DMA compliance.</p>
+          <span class="card-pill card-pill--teal">Production ML at Scale</span>
+        </div>
+        <div class="timeline-card reveal reveal-d2">
+          <span class="year">2022</span>
+          <div class="role">ML Engineer Intern</div>
+          <div class="company">LinkedIn · Foundation AI</div>
+          <p class="desc">Upgraded LinkedIn related search backbone from LSTM to BART, achieving 15% accuracy improvement. Transformed corporate data into LLM prompts at scale.</p>
+          <span class="card-pill card-pill--teal">NLP / Search</span>
+        </div>
+        <div class="timeline-card reveal reveal-d3">
+          <span class="year">2021–23</span>
+          <div class="role">Research Assistant</div>
+          <div class="company">Yale LILY Lab</div>
+          <p class="desc">Published papers at EMNLP & NAACL on LLM agents, RAG, table QA, code generation, and data-to-text. Enhanced faithfulness and reliability of tool-augmented LLMs.</p>
+          <span class="card-pill card-pill--gold">Published Researcher</span>
+        </div>
+        <div class="timeline-card reveal reveal-d4">
+          <span class="year">2021</span>
+          <div class="role">Research Engineer Intern</div>
+          <div class="company">Baidu · PaddlePaddle</div>
+          <p class="desc">Built hybrid GCN+GAT for cancer drug response prediction (85% AUC). Contributed 1k+ lines to PaddlePaddle (17k stars), the 3rd largest DL framework.</p>
+          <span class="card-pill card-pill--rose">Deep Learning / BioML</span>
+        </div>
+        <div class="timeline-card reveal reveal-d5">
+          <span class="year">2020–21</span>
+          <div class="role">NLP Research Engineer</div>
+          <div class="company">BBD · FinTech AI</div>
+          <p class="desc">Built entity extraction (BiLSTM+CRF, 97% accuracy) for financial knowledge graphs. Topic clustering and stance analysis on social media at scale.</p>
+          <span class="card-pill card-pill--teal">NLP / FinTech</span>
+        </div>
+        <div class="timeline-card reveal reveal-d1">
+          <span class="year">Ongoing</span>
+          <div class="role">Actress · Stage Producer · Makeup & Costume</div>
+          <div class="company">Feiyu Theater</div>
+          <p class="desc">Performing on stage, producing shows end-to-end, and designing makeup & costumes. Theater is where analytical thinking meets creative expression.</p>
+          <span class="card-pill card-pill--rose">Drama / Performing Arts</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== DARK PANEL — Pull Quote ========== -->
+  <section class="dark-section">
+    <div class="container">
+      <div class="pull-quote reveal">
+        I believe the best ML systems are built by people who understand both the math and the humans on the other side of the model.
+        <span class="author">— zoey, probably between a ski run and a rehearsal</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== SKILLS — Three-Column Grid ========== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-number">03</span>
+        <h2 class="section-title">What I Work With</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card reveal reveal-d1">
+          <span class="card-number">01</span>
+          <div class="card-title">ML / AI Systems</div>
+          <p class="card-desc">Multi-task learning, Embedding-Based Retrieval, recommendation systems, distributed training (TensorFlow, PyTorch), Transformers, LLMs & prompt engineering.</p>
+        </div>
+        <div class="feature-card reveal reveal-d2">
+          <span class="card-number">02</span>
+          <div class="card-title">NLP & LLMs</div>
+          <p class="card-desc">RAG, tool-augmented agents, question answering, code generation, data-to-text, summarization. GPT prompt design, fine-tuning, evaluation frameworks.</p>
+        </div>
+        <div class="feature-card reveal reveal-d3">
+          <span class="card-number">03</span>
+          <div class="card-title">Data Infrastructure</div>
+          <p class="card-desc">Apache Spark, Hadoop, Airflow, Kubernetes, key-value stores, Avro, data pipeline orchestration at LinkedIn scale. Python, Scala, Java, C++, SQL.</p>
+        </div>
+        <div class="feature-card reveal reveal-d1">
+          <span class="card-number">04</span>
+          <div class="card-title">Ads & Audience AI</div>
+          <p class="card-desc">Audience targeting, bid-aware ranking, cold-start solutions, objective-aware scoring, privacy compliance (EU DMA), production ML serving 1.3B+ members.</p>
+        </div>
+        <div class="feature-card reveal reveal-d2">
+          <span class="card-number">05</span>
+          <div class="card-title">Research & Publication</div>
+          <p class="card-desc">papers at EMNLP & NAACL. Research on LLM reliability, faithfulness evaluation, augmented generation. Yale LILY Lab, Yale School of Medicine.</p>
+        </div>
+        <div class="feature-card reveal reveal-d3">
+          <span class="card-number">06</span>
+          <div class="card-title">Web & Full Stack</div>
+          <p class="card-desc">React, Next.js, Flask. Building internal tools, dashboards, and data visualization interfaces. From prototype to production.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== PUBLICATIONS — Vertical Step Line ========== -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-number">04</span>
+        <h2 class="section-title">Publications</h2>
+      </div>
+      <div class="pub-list">
+        <div class="pub-item reveal reveal-d1">
+          <div class="pub-dot"></div>
+          <div class="pub-venue">EMNLP 2024</div>
+          <div class="pub-title">OMG-QA: Building Open-Domain Multi-Modal Generative Question Answering Systems</div>
+        </div>
+        <div class="pub-item reveal reveal-d2">
+          <div class="pub-dot"></div>
+          <div class="pub-venue">NAACL 2024</div>
+          <div class="pub-title">On Evaluating the Integration of Reasoning and Action in LLM Agents with Database Question Answering</div>
+        </div>
+        <div class="pub-item reveal reveal-d3">
+          <div class="pub-dot"></div>
+          <div class="pub-venue">EMNLP 2023</div>
+          <div class="pub-title">Enhancing Few-shot Text-to-SQL Capabilities of Large Language Models: A Study on Prompt Design Strategies</div>
+        </div>
+        <div class="pub-item reveal reveal-d4">
+          <div class="pub-dot"></div>
+          <div class="pub-venue">EMNLP 2023</div>
+          <div class="pub-title">QTSumm: Query-Focused Summarization over Tabular Data</div>
+        </div>
+        <div class="pub-item reveal reveal-d5">
+          <div class="pub-dot"></div>
+          <div class="pub-venue">EMNLP 2022</div>
+          <div class="pub-title">R2D2: Robust Data-to-Text with Replacement Detection</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== BEYOND WORK — Auto-fill Grid ========== -->
+  <section class="section section--alt">
+    <div class="container">
+      <div class="section-header reveal">
+        <span class="section-number">05</span>
+        <h2 class="section-title">Beyond the Terminal</h2>
+      </div>
+      <div class="life-grid">
+        <!-- Cards with evidence first -->
+        <div class="life-card reveal reveal-d1">
+          <span class="life-emoji">🎭</span>
+          <div class="life-label">Drama</div>
+          <div class="life-desc">Feiyu Theater — actress, stage producer, makeup & costume. Where analytical meets creative.</div>
+          <a href="https://feiyutheater.org/" target="_blank" class="life-link">feiyutheater.org →</a>
+        </div>
+        <div class="life-card life-card--highlight reveal reveal-d2">
+          <span class="life-emoji">🚀</span>
+          <div class="life-label">Coding</div>
+          <div class="life-desc">Building an app — launching soon. Follow me on LinkedIn for the announcement!</div>
+          <span class="life-badge">Coming Soon</span>
+          <a href="https://github.com/VIcKII-Z" target="_blank" class="life-link">github.com/VIcKII-Z →</a>
+        </div>
+        <div class="life-card reveal reveal-d3">
+          <span class="life-emoji">✨</span>
+          <div class="life-label">Crafting</div>
+          <div class="life-desc">Handmade press-on nail designs and jewelry. Tiny things made with care — precision meets art.</div>
+          <a href="https://www.instagram.com/zoeynailsdesign?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" class="life-link">@zoeynailsdesign on Instagram →</a>
+        </div>
+        <div class="life-card reveal reveal-d4">
+          <span class="life-emoji">🌍</span>
+          <div class="life-label">Exploring</div>
+          <div class="life-desc">New places, new people, new ideas. 7,836 likes & saves on Xiaohongshu — come explore with me!</div>
+          <a href="https://xhslink.com/m/AdK6pP3NfXF" target="_blank" class="life-link">Visit my Xiaohongshu →</a>
+        </div>
+        <div class="life-card reveal reveal-d1">
+          <span class="life-emoji">📖</span>
+          <div class="life-label">English Tutor</div>
+          <div class="life-desc">10k+ followers on Douyin. Teaching English with real-world context — from Yale to Silicon Valley.</div>
+          <a href="https://v.douyin.com/Q8pf-EzBNn4/" target="_blank" class="life-link">Follow me on Douyin →</a>
+        </div>
+        <!-- Fun stuff -->
+        <div class="life-card reveal reveal-d2">
+          <span class="life-emoji">🎹</span>
+          <div class="life-label">Piano</div>
+          <div class="life-desc">Keys and melodies. Music is the closest thing to pure pattern recognition.</div>
+        </div>
+        <div class="life-card reveal reveal-d3">
+          <span class="life-emoji">⛷️</span>
+          <div class="life-label">Skiing</div>
+          <div class="life-desc">Chasing powder days in Tahoe and beyond. The mountain is the best debugger.</div>
+        </div>
+        <div class="life-card reveal reveal-d4">
+          <span class="life-emoji">🎲</span>
+          <div class="life-label">Board Games</div>
+          <div class="life-desc">Strategy, bluffing, negotiation. It's basically distributed systems with snacks.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== CTA / CONTACT ========== -->
+  <section class="cta-section">
+    <h2 class="reveal">Let's Chat</h2>
+    <p class="reveal reveal-d1">Based in Sunnyvale, CA. Open to collaborations, coffee chats, and interesting conversations.<br>Drop me a message right here — it goes straight to my inbox.</p>
+    <form class="contact-form reveal reveal-d2" action="https://formsubmit.co/vivianzzzou@gmail.com" method="POST">
+      <input type="hidden" name="_subject" value="Message from your personal site!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="name" placeholder="Your name" required>
+      <input type="email" name="email" placeholder="Your email" required>
+      <textarea name="message" rows="4" placeholder="What's on your mind? Collab idea, coffee chat, or just saying hi..." required></textarea>
+      <button type="submit" class="cta-button">Send Message →</button>
+    </form>
+    <p class="reveal reveal-d3" style="margin-top:1.5rem; font-size:0.82rem; color:var(--ink-faint);">
+      Or find me on <a href="https://www.linkedin.com/in/weijin-vivian-zou/" style="color:var(--teal); text-decoration:underline;">LinkedIn</a>
+    </p>
+  </section>
+
+  <!-- ========== FOOTER ========== -->
+  <footer class="footer">
+    <p>built with curiosity & caffeine · zoey zou · 2025</p>
+  </footer>
+
+  <!-- ========== SCROLL REVEAL JS ========== -->
+  <script>
+    const revealEls = document.querySelectorAll('.reveal');
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
+    revealEls.forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
