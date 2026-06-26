@@ -555,6 +555,35 @@
       font-family: 'Fira Code', monospace;
     }
 
+    /* ==================== LANGUAGE TOGGLE ==================== */
+    .lang-toggle {
+      position: fixed;
+      top: 20px;
+      right: 24px;
+      z-index: 999;
+      display: flex;
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+      overflow: hidden;
+      font-family: 'Fira Code', monospace;
+      font-size: 0.72rem;
+    }
+    .lang-toggle button {
+      border: none;
+      background: transparent;
+      padding: 6px 14px;
+      cursor: pointer;
+      color: var(--ink-faint);
+      font-family: inherit;
+      font-size: inherit;
+      transition: all 0.2s;
+    }
+    .lang-toggle button.active {
+      background: var(--teal);
+      color: #fff;
+    }
+
     /* ==================== SCROLL REVEAL ==================== */
     .reveal {
       opacity: 0;
@@ -594,22 +623,28 @@
 </head>
 <body>
 
+  <!-- ========== LANGUAGE TOGGLE ========== -->
+  <div class="lang-toggle">
+    <button class="active" onclick="switchLang('en')">EN</button>
+    <button onclick="switchLang('zh')">中文</button>
+  </div>
+
   <!-- ========== HERO ========== -->
   <section class="hero">
     <div class="hero-text">
-      <span class="label-caps">Senior ML Engineer · Researcher · Explorer</span>
-      <h1>Hi, I'm <span class="gradient-name">Weijin (Zoey) Zou</span></h1>
-      <p class="hero-subtitle">
+      <span class="label-caps" data-i18n="hero.label">Senior ML Engineer · Researcher · Explorer</span>
+      <h1 data-i18n="hero.title">Hi, I'm <span class="gradient-name">Weijin (Zoey) Zou</span></h1>
+      <p class="hero-subtitle" data-i18n="hero.subtitle">
         I build AI systems that power how advertisers reach the right people across LinkedIn's 1.3 billion members.
         Off the clock, I'm on stage acting, in the mountains skiing, at the piano, or crafting something tiny and beautiful.
       </p>
       <div class="hero-tags">
-        <span class="tag tag--teal">ML / LLMs</span>
-        <span class="tag tag--teal">Published Researcher</span>
-        <span class="tag tag--rose">Actress & Producer</span>
-        <span class="tag tag--gold">Nail Artist</span>
-        <span class="tag tag--teal">English Tutor</span>
-        <span class="tag tag--gold">Skier & Pianist</span>
+        <span class="tag tag--teal" data-i18n="tag.ml">ML / LLMs</span>
+        <span class="tag tag--teal" data-i18n="tag.research">Published Researcher</span>
+        <span class="tag tag--rose" data-i18n="tag.actress">Actress & Producer</span>
+        <span class="tag tag--gold" data-i18n="tag.nails">Nail Artist</span>
+        <span class="tag tag--teal" data-i18n="tag.tutor">English Tutor</span>
+        <span class="tag tag--gold" data-i18n="tag.ski">Skier & Pianist</span>
         <span class="tag tag--rose">Gemini ♊</span>
       </div>
     </div>
@@ -629,16 +664,16 @@
       <div class="layout-sticky">
         <div class="sticky-side reveal">
           <span class="section-number">01</span>
-          <h2 class="section-title">About Me</h2>
+          <h2 class="section-title" data-i18n="about.title">About Me</h2>
         </div>
         <div class="about-content">
-          <p class="reveal reveal-d1">
+          <p class="reveal reveal-d1" data-i18n="about.p1">
             I'm a <span class="highlight">Senior ML Engineer at LinkedIn HQ</span> in Sunnyvale, where I build the AI systems behind how advertisers reach the right audiences. My work spans large-scale recommendation models, LLM-powered audience intelligence, and retrieval systems that serve hundreds of millions of members — turning complex ML research into products that move real business metrics.
           </p>
-          <p class="reveal reveal-d2">
+          <p class="reveal reveal-d2" data-i18n="about.p2">
             Before LinkedIn, I earned my MS in Data Science from <span class="highlight">Yale University</span>. At Yale's LILY Lab, I published papers at top NLP venues (EMNLP, NAACL) on LLM agents, question answering, and data-to-text generation.
           </p>
-          <p class="reveal reveal-d3">
+          <p class="reveal reveal-d3" data-i18n="about.p3">
             A Gemini through and through — one half builds ML systems, the other half performs on stage. At <span class="highlight">Feiyu Theater</span> I act, produce, and do makeup & costumes. I also teach English to 10k followers on Douyin, craft press-on nails, chase powder days on the slopes, and play piano when things get too quiet. I believe the best engineers are the ones who never stop being curious about everything outside of engineering.
           </p>
         </div>
@@ -651,52 +686,52 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-number">02</span>
-        <h2 class="section-title">Experience</h2>
+        <h2 class="section-title" data-i18n="exp.title">Experience</h2>
       </div>
     </div>
     <div class="container">
       <div class="timeline-scroll">
         <div class="timeline-card reveal reveal-d1">
           <span class="year">2023–Now</span>
-          <div class="role">Senior ML Engineer</div>
+          <div class="role" data-i18n="exp.1.role">Senior ML Engineer</div>
           <div class="company">LinkedIn · Ads AI</div>
-          <p class="desc">Led multi-task EBR for audience targeting across 1.3B+ members. Built Transformer-based sequence modeling (5% AUC lift, 15% CPC reduction). Shipped bid-aware matching, LLM cold-start targeting, and DMA compliance.</p>
-          <span class="card-pill card-pill--teal">Production ML at Scale</span>
+          <p class="desc" data-i18n="exp.1.desc">Led multi-task EBR for audience targeting across 1.3B+ members. Built Transformer-based sequence modeling (5% AUC lift, 15% CPC reduction). Shipped bid-aware matching, LLM cold-start targeting, and DMA compliance.</p>
+          <span class="card-pill card-pill--teal" data-i18n="exp.1.pill">Production ML at Scale</span>
         </div>
         <div class="timeline-card reveal reveal-d2">
           <span class="year">2022</span>
-          <div class="role">ML Engineer Intern</div>
+          <div class="role" data-i18n="exp.2.role">ML Engineer Intern</div>
           <div class="company">LinkedIn · Foundation AI</div>
-          <p class="desc">Upgraded LinkedIn related search backbone from LSTM to BART, achieving 15% accuracy improvement. Transformed corporate data into LLM prompts at scale.</p>
+          <p class="desc" data-i18n="exp.2.desc">Upgraded LinkedIn related search backbone from LSTM to BART, achieving 15% accuracy improvement. Transformed corporate data into LLM prompts at scale.</p>
           <span class="card-pill card-pill--teal">NLP / Search</span>
         </div>
         <div class="timeline-card reveal reveal-d3">
           <span class="year">2021–23</span>
-          <div class="role">Research Assistant</div>
+          <div class="role" data-i18n="exp.3.role">Research Assistant</div>
           <div class="company">Yale LILY Lab</div>
-          <p class="desc">Published papers at EMNLP & NAACL on LLM agents, RAG, table QA, code generation, and data-to-text. Enhanced faithfulness and reliability of tool-augmented LLMs.</p>
-          <span class="card-pill card-pill--gold">Published Researcher</span>
+          <p class="desc" data-i18n="exp.3.desc">Published papers at EMNLP & NAACL on LLM agents, RAG, table QA, code generation, and data-to-text. Enhanced faithfulness and reliability of tool-augmented LLMs.</p>
+          <span class="card-pill card-pill--gold" data-i18n="exp.3.pill">Published Researcher</span>
         </div>
         <div class="timeline-card reveal reveal-d4">
           <span class="year">2021</span>
-          <div class="role">Research Engineer Intern</div>
+          <div class="role" data-i18n="exp.4.role">Research Engineer Intern</div>
           <div class="company">Baidu · PaddlePaddle</div>
-          <p class="desc">Built hybrid GCN+GAT for cancer drug response prediction (85% AUC). Contributed 1k+ lines to PaddlePaddle (17k stars), the 3rd largest DL framework.</p>
-          <span class="card-pill card-pill--rose">Deep Learning / BioML</span>
+          <p class="desc" data-i18n="exp.4.desc">Built hybrid GCN+GAT for cancer drug response prediction (85% AUC). Contributed 1k+ lines to PaddlePaddle (17k stars), the 3rd largest DL framework.</p>
+          <span class="card-pill card-pill--rose" data-i18n="exp.4.pill">Deep Learning / BioML</span>
         </div>
         <div class="timeline-card reveal reveal-d5">
           <span class="year">2020–21</span>
-          <div class="role">NLP Research Engineer</div>
+          <div class="role" data-i18n="exp.5.role">NLP Research Engineer</div>
           <div class="company">BBD · FinTech AI</div>
-          <p class="desc">Built entity extraction (BiLSTM+CRF, 97% accuracy) for financial knowledge graphs. Topic clustering and stance analysis on social media at scale.</p>
-          <span class="card-pill card-pill--teal">NLP / FinTech</span>
+          <p class="desc" data-i18n="exp.5.desc">Built entity extraction (BiLSTM+CRF, 97% accuracy) for financial knowledge graphs. Topic clustering and stance analysis on social media at scale.</p>
+          <span class="card-pill card-pill--teal" data-i18n="exp.5.pill">NLP / FinTech</span>
         </div>
         <div class="timeline-card reveal reveal-d1">
           <span class="year">Ongoing</span>
-          <div class="role">Actress · Stage Producer · Makeup & Costume</div>
-          <div class="company">Feiyu Theater</div>
-          <p class="desc">Performing on stage, producing shows end-to-end, and designing makeup & costumes. Theater is where analytical thinking meets creative expression.</p>
-          <span class="card-pill card-pill--rose">Drama / Performing Arts</span>
+          <div class="role" data-i18n="exp.6.role">Actress · Stage Producer · Makeup & Costume</div>
+          <div class="company" data-i18n="exp.6.company">Feiyu Theater</div>
+          <p class="desc" data-i18n="exp.6.desc">Performing on stage, producing shows end-to-end, and designing makeup & costumes. Theater is where analytical thinking meets creative expression.</p>
+          <span class="card-pill card-pill--rose" data-i18n="exp.6.pill">Drama / Performing Arts</span>
         </div>
       </div>
     </div>
@@ -706,8 +741,8 @@
   <section class="dark-section">
     <div class="container">
       <div class="pull-quote reveal">
-        I believe the best ML systems are built by people who understand both the math and the humans on the other side of the model.
-        <span class="author">— zoey, probably between a ski run and a rehearsal</span>
+        <span data-i18n="quote.text">I believe the best ML systems are built by people who understand both the math and the humans on the other side of the model.</span>
+        <span class="author" data-i18n="quote.author">— zoey, probably between a ski run and a rehearsal</span>
       </div>
     </div>
   </section>
@@ -717,38 +752,38 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-number">03</span>
-        <h2 class="section-title">What I Work With</h2>
+        <h2 class="section-title" data-i18n="skills.title">What I Work With</h2>
       </div>
       <div class="features-grid">
         <div class="feature-card reveal reveal-d1">
           <span class="card-number">01</span>
-          <div class="card-title">ML / AI Systems</div>
-          <p class="card-desc">Multi-task learning, Embedding-Based Retrieval, recommendation systems, distributed training (TensorFlow, PyTorch), Transformers, LLMs & prompt engineering.</p>
+          <div class="card-title" data-i18n="skill.1.title">ML / AI Systems</div>
+          <p class="card-desc" data-i18n="skill.1.desc">Multi-task learning, Embedding-Based Retrieval, recommendation systems, distributed training (TensorFlow, PyTorch), Transformers, LLMs & prompt engineering.</p>
         </div>
         <div class="feature-card reveal reveal-d2">
           <span class="card-number">02</span>
-          <div class="card-title">NLP & LLMs</div>
-          <p class="card-desc">RAG, tool-augmented agents, question answering, code generation, data-to-text, summarization. GPT prompt design, fine-tuning, evaluation frameworks.</p>
+          <div class="card-title" data-i18n="skill.2.title">NLP & LLMs</div>
+          <p class="card-desc" data-i18n="skill.2.desc">RAG, tool-augmented agents, question answering, code generation, data-to-text, summarization. GPT prompt design, fine-tuning, evaluation frameworks.</p>
         </div>
         <div class="feature-card reveal reveal-d3">
           <span class="card-number">03</span>
-          <div class="card-title">Data Infrastructure</div>
-          <p class="card-desc">Apache Spark, Hadoop, Airflow, Kubernetes, key-value stores, Avro, data pipeline orchestration at LinkedIn scale. Python, Scala, Java, C++, SQL.</p>
+          <div class="card-title" data-i18n="skill.3.title">Data Infrastructure</div>
+          <p class="card-desc" data-i18n="skill.3.desc">Apache Spark, Hadoop, Airflow, Kubernetes, key-value stores, Avro, data pipeline orchestration at LinkedIn scale. Python, Scala, Java, C++, SQL.</p>
         </div>
         <div class="feature-card reveal reveal-d1">
           <span class="card-number">04</span>
-          <div class="card-title">Ads & Audience AI</div>
-          <p class="card-desc">Audience targeting, bid-aware ranking, cold-start solutions, objective-aware scoring, privacy compliance (EU DMA), production ML serving 1.3B+ members.</p>
+          <div class="card-title" data-i18n="skill.4.title">Ads & Audience AI</div>
+          <p class="card-desc" data-i18n="skill.4.desc">Audience targeting, bid-aware ranking, cold-start solutions, objective-aware scoring, privacy compliance (EU DMA), production ML serving 1.3B+ members.</p>
         </div>
         <div class="feature-card reveal reveal-d2">
           <span class="card-number">05</span>
-          <div class="card-title">Research & Publication</div>
-          <p class="card-desc">papers at EMNLP & NAACL. Research on LLM reliability, faithfulness evaluation, augmented generation. Yale LILY Lab, Yale School of Medicine.</p>
+          <div class="card-title" data-i18n="skill.5.title">Research & Publication</div>
+          <p class="card-desc" data-i18n="skill.5.desc">papers at EMNLP & NAACL. Research on LLM reliability, faithfulness evaluation, augmented generation. Yale LILY Lab, Yale School of Medicine.</p>
         </div>
         <div class="feature-card reveal reveal-d3">
           <span class="card-number">06</span>
-          <div class="card-title">Web & Full Stack</div>
-          <p class="card-desc">React, Next.js, Flask. Building internal tools, dashboards, and data visualization interfaces. From prototype to production.</p>
+          <div class="card-title" data-i18n="skill.6.title">Web & Full Stack</div>
+          <p class="card-desc" data-i18n="skill.6.desc">React, Next.js, Flask. Building internal tools, dashboards, and data visualization interfaces. From prototype to production.</p>
         </div>
       </div>
     </div>
@@ -759,7 +794,7 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-number">04</span>
-        <h2 class="section-title">Publications</h2>
+        <h2 class="section-title" data-i18n="pub.title">Publications</h2>
       </div>
       <div class="pub-list">
         <div class="pub-item reveal reveal-d1">
@@ -796,56 +831,56 @@
     <div class="container">
       <div class="section-header reveal">
         <span class="section-number">05</span>
-        <h2 class="section-title">Beyond the Terminal</h2>
+        <h2 class="section-title" data-i18n="life.title">Beyond the Terminal</h2>
       </div>
       <div class="life-grid">
         <!-- Cards with evidence first -->
         <div class="life-card reveal reveal-d1">
           <span class="life-emoji">🎭</span>
-          <div class="life-label">Drama</div>
-          <div class="life-desc">Feiyu Theater — actress, stage producer, makeup & costume. Where analytical meets creative.</div>
+          <div class="life-label" data-i18n="life.drama.label">Drama</div>
+          <div class="life-desc" data-i18n="life.drama.desc">Feiyu Theater — actress, stage producer, makeup & costume. Where analytical meets creative.</div>
           <a href="https://feiyutheater.org/" target="_blank" class="life-link">feiyutheater.org →</a>
         </div>
         <div class="life-card life-card--highlight reveal reveal-d2">
           <span class="life-emoji">🚀</span>
-          <div class="life-label">Coding</div>
-          <div class="life-desc">Building an app — launching soon. Follow me on LinkedIn for the announcement!</div>
+          <div class="life-label" data-i18n="life.code.label">Coding</div>
+          <div class="life-desc" data-i18n="life.code.desc">Building an app — launching soon. Follow me on LinkedIn for the announcement!</div>
           <span class="life-badge">Coming Soon</span>
           <a href="https://github.com/VIcKII-Z" target="_blank" class="life-link">github.com/VIcKII-Z →</a>
         </div>
         <div class="life-card reveal reveal-d3">
           <span class="life-emoji">✨</span>
-          <div class="life-label">Crafting</div>
-          <div class="life-desc">Handmade press-on nail designs and jewelry. Tiny things made with care — precision meets art.</div>
+          <div class="life-label" data-i18n="life.craft.label">Crafting</div>
+          <div class="life-desc" data-i18n="life.craft.desc">Handmade press-on nail designs and jewelry. Tiny things made with care — precision meets art.</div>
           <a href="https://www.instagram.com/zoeynailsdesign?igsh=NTc4MTIwNjQ2YQ%3D%3D&utm_source=qr" target="_blank" class="life-link">@zoeynailsdesign on Instagram →</a>
         </div>
         <div class="life-card reveal reveal-d4">
           <span class="life-emoji">🌍</span>
-          <div class="life-label">Exploring</div>
-          <div class="life-desc">New places, new people, new ideas. 7,836 likes & saves on Xiaohongshu — come explore with me!</div>
+          <div class="life-label" data-i18n="life.explore.label">Exploring</div>
+          <div class="life-desc" data-i18n="life.explore.desc">New places, new people, new ideas. 7,836 likes & saves on Xiaohongshu — come explore with me!</div>
           <a href="https://xhslink.com/m/AdK6pP3NfXF" target="_blank" class="life-link">Visit my Xiaohongshu →</a>
         </div>
         <div class="life-card reveal reveal-d1">
           <span class="life-emoji">📖</span>
-          <div class="life-label">English Tutor</div>
-          <div class="life-desc">10k+ followers on Douyin. Teaching English with real-world context — from Yale to Silicon Valley.</div>
+          <div class="life-label" data-i18n="life.tutor.label">English Tutor</div>
+          <div class="life-desc" data-i18n="life.tutor.desc">10k+ followers on Douyin. Teaching English with real-world context — from Yale to Silicon Valley.</div>
           <a href="https://v.douyin.com/Q8pf-EzBNn4/" target="_blank" class="life-link">Follow me on Douyin →</a>
         </div>
         <!-- Fun stuff -->
         <div class="life-card reveal reveal-d2">
           <span class="life-emoji">🎹</span>
-          <div class="life-label">Piano</div>
-          <div class="life-desc">Keys and melodies. Music is the closest thing to pure pattern recognition.</div>
+          <div class="life-label" data-i18n="life.piano.label">Piano</div>
+          <div class="life-desc" data-i18n="life.piano.desc">Keys and melodies. Music is the closest thing to pure pattern recognition.</div>
         </div>
         <div class="life-card reveal reveal-d3">
           <span class="life-emoji">⛷️</span>
-          <div class="life-label">Skiing</div>
-          <div class="life-desc">Chasing powder days in Tahoe and beyond. The mountain is the best debugger.</div>
+          <div class="life-label" data-i18n="life.ski.label">Skiing</div>
+          <div class="life-desc" data-i18n="life.ski.desc">Chasing powder days in Tahoe and beyond. The mountain is the best debugger.</div>
         </div>
         <div class="life-card reveal reveal-d4">
           <span class="life-emoji">🎲</span>
-          <div class="life-label">Board Games</div>
-          <div class="life-desc">Strategy, bluffing, negotiation. It's basically distributed systems with snacks.</div>
+          <div class="life-label" data-i18n="life.board.label">Board Games</div>
+          <div class="life-desc" data-i18n="life.board.desc">Strategy, bluffing, negotiation. It's basically distributed systems with snacks.</div>
         </div>
       </div>
     </div>
@@ -853,15 +888,15 @@
 
   <!-- ========== CTA / CONTACT ========== -->
   <section class="cta-section">
-    <h2 class="reveal">Let's Chat</h2>
-    <p class="reveal reveal-d1">Based in Sunnyvale, CA. Open to collaborations, coffee chats, and interesting conversations.<br>Drop me a message right here — it goes straight to my inbox.</p>
-    <form class="contact-form reveal reveal-d2" action="https://formsubmit.co/vivianzzzou@gmail.com" method="POST">
+    <h2 class="reveal" data-i18n="cta.title">Let's Chat</h2>
+    <p class="reveal reveal-d1" data-i18n="cta.desc">Based in Sunnyvale, CA. Open to collaborations, coffee chats, and interesting conversations.<br>Drop me a message right here — it goes straight to my inbox.</p>
+    <form class="contact-form reveal reveal-d2" action="https://formsubmit.co/8800473074a0b54d970fa86468ea56b7" method="POST">
       <input type="hidden" name="_subject" value="Message from your personal site!">
       <input type="hidden" name="_captcha" value="false">
       <input type="text" name="name" placeholder="Your name" required>
       <input type="email" name="email" placeholder="Your email" required>
       <textarea name="message" rows="4" placeholder="What's on your mind? Collab idea, coffee chat, or just saying hi..." required></textarea>
-      <button type="submit" class="cta-button">Send Message →</button>
+      <button type="submit" class="cta-button" data-i18n="cta.send">Send Message →</button>
     </form>
     <p class="reveal reveal-d3" style="margin-top:1.5rem; font-size:0.82rem; color:var(--ink-faint);">
       Or find me on <a href="https://www.linkedin.com/in/weijin-vivian-zou/" style="color:var(--teal); text-decoration:underline;">LinkedIn</a>
@@ -873,8 +908,9 @@
     <p>built with curiosity & caffeine · zoey zou · 2025</p>
   </footer>
 
-  <!-- ========== SCROLL REVEAL JS ========== -->
+  <!-- ========== SCROLL REVEAL + LANGUAGE SWITCH JS ========== -->
   <script>
+    // Scroll reveal
     const revealEls = document.querySelectorAll('.reveal');
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -884,6 +920,121 @@
       });
     }, { threshold: 0.15, rootMargin: '0px 0px -40px 0px' });
     revealEls.forEach(el => observer.observe(el));
+
+    // Language translations
+    const i18n = {
+      zh: {
+        // Hero
+        'hero.label': '资深机器学习工程师 · 研究者 · 探索者',
+        'hero.title': '嗨，我是<span class="gradient-name">邹薇瑾 (Zoey)</span>',
+        'hero.subtitle': '白天在LinkedIn用AI连接13亿会员与广告主，晚上在剧场演戏、在雪山滑雪、在钢琴前发呆、在手工桌前做美甲——大概就是这样一个闲不住的人。',
+        'tag.ml': '机器学习 / 大模型',
+        'tag.research': '学术发表',
+        'tag.actress': '演员 & 制作人',
+        'tag.nails': '美甲手作',
+        'tag.tutor': '英语教学',
+        'tag.ski': '滑雪 & 钢琴',
+        // About
+        'about.title': '关于我',
+        'about.p1': '我是LinkedIn总部（Sunnyvale）的<span class="highlight">资深机器学习工程师</span>，负责构建广告受众精准触达背后的AI系统。我的工作涵盖大规模推荐模型、基于大模型的受众智能、以及服务数亿会员的检索系统——将复杂的ML研究转化为能驱动业务指标的产品。',
+        'about.p2': '在加入LinkedIn之前，我在<span class="highlight">耶鲁大学</span>获得数据科学硕士学位。在耶鲁LILY实验室，我在顶级NLP会议（EMNLP、NAACL）发表了多篇关于LLM Agent、问答系统和数据到文本生成的论文。',
+        'about.p3': '彻头彻尾的双子座——一半在构建ML系统，一半在舞台上表演。在<span class="highlight">飞鱼剧社</span>担任演员、制作人，还负责化妆和服装。在抖音教英语，有1万+粉丝。做手工美甲和首饰，有雪就去滑雪，安静的时候弹钢琴。我相信最好的工程师，是那些对工程之外的一切都永远好奇的人。',
+        // Experience
+        'exp.title': '经历',
+        'exp.1.role': '资深机器学习工程师',
+        'exp.1.desc': '主导广告受众定向从单任务到多任务Embedding检索的转型，服务13亿+会员。构建Transformer序列建模（AUC提升5%，CPC降低15%）。上线竞价感知匹配、LLM冷启动定向及DMA合规。',
+        'exp.1.pill': '大规模生产级ML',
+        'exp.2.role': '机器学习工程师实习生',
+        'exp.2.desc': '将LinkedIn相关搜索的骨干模型从LSTM升级为BART，准确率提升15%。将企业数据转化为大模型prompt，实现规模化应用。',
+        'exp.3.role': '研究助理',
+        'exp.3.desc': '在EMNLP和NAACL发表多篇论文，研究方向包括LLM Agent、RAG、表格问答、代码生成和数据到文本。提升了工具增强型大模型的忠实性和可靠性。',
+        'exp.3.pill': '学术研究',
+        'exp.4.role': '研究工程师实习生',
+        'exp.4.desc': '构建GCN+GAT混合图神经网络预测癌症药物响应（AUC 85%）。为PaddlePaddle（17k stars，全球第三大深度学习框架）贡献1000+行代码。',
+        'exp.4.pill': '深度学习 / 生物ML',
+        'exp.5.role': 'NLP研究工程师',
+        'exp.5.desc': '构建BiLSTM+CRF实体抽取系统（准确率97%），用于金融知识图谱。在社交媒体数据上进行大规模话题聚类和立场分析。',
+        'exp.5.pill': 'NLP / 金融科技',
+        'exp.6.role': '演员 · 舞台制作人 · 化妆与服装',
+        'exp.6.company': '飞鱼剧社',
+        'exp.6.desc': '在舞台上表演，端到端制作戏剧，设计化妆和服装。剧场是分析思维与创造力交汇的地方。',
+        'exp.6.pill': '戏剧 / 表演艺术',
+        // Quote
+        'quote.author': '— Zoey，大概是在一次滑雪和排练之间说的',
+        // Skills
+        'skills.title': '技术栈',
+        'skill.1.title': 'ML / AI 系统',
+        'skill.1.desc': '多任务学习、Embedding检索、推荐系统、分布式训练（TensorFlow、PyTorch）、Transformers、大模型与Prompt Engineering。',
+        'skill.2.title': 'NLP & 大模型',
+        'skill.2.desc': 'RAG、工具增强Agent、问答系统、代码生成、数据到文本、摘要生成。GPT Prompt设计、微调、评估框架。',
+        'skill.3.title': '数据基础设施',
+        'skill.3.desc': 'Apache Spark、Hadoop、Airflow、Kubernetes、KV存储、Avro、LinkedIn规模的数据管道编排。Python、Scala、Java、C++、SQL。',
+        'skill.4.title': '广告 & 受众AI',
+        'skill.4.desc': '受众定向、竞价感知排序、冷启动方案、目标感知打分、隐私合规（EU DMA），服务13亿+会员的生产级ML。',
+        'skill.5.title': '学术研究',
+        'skill.5.desc': 'EMNLP、NAACL论文发表。研究方向：大模型可靠性、忠实性评估、增强生成。耶鲁LILY实验室、耶鲁医学院。',
+        'skill.6.title': 'Web全栈',
+        'skill.6.desc': 'React、Next.js、Flask。构建内部工具、数据可视化面板。从原型到生产。',
+        // Publications
+        'pub.title': '学术发表',
+        // Life
+        'life.title': '下班之后',
+        'life.drama.label': '戏剧',
+        'life.drama.desc': '飞鱼剧社——演员、舞台制作人、化妆与服装。分析与创造力的交汇点。',
+        'life.code.label': '编程',
+        'life.code.desc': '正在开发一款App——即将上线。关注我的LinkedIn获取发布消息！',
+        'life.craft.label': '手作',
+        'life.craft.desc': '手工穿戴甲设计和首饰制作。用心做的小东西——精确与艺术的结合。',
+        'life.explore.label': '探索',
+        'life.explore.desc': '新地方、新朋友、新想法。小红书7836赞藏——一起来探索吧！',
+        'life.tutor.label': '英语教学',
+        'life.tutor.desc': '抖音1万+粉丝。用真实场景教英语——从耶鲁到硅谷。',
+        'life.piano.label': '钢琴',
+        'life.piano.desc': '琴键与旋律。音乐是最接近纯粹模式识别的东西。',
+        'life.ski.label': '滑雪',
+        'life.ski.desc': '在Tahoe追粉雪。雪山是最好的debugger。',
+        'life.board.label': '桌游',
+        'life.board.desc': '策略、虚张声势、谈判。本质上就是带零食的分布式系统。',
+        // CTA
+        'cta.title': '聊一聊',
+        'cta.desc': '坐标加州Sunnyvale。随时欢迎合作、Coffee Chat、或任何有趣的对话。<br>直接在这里给我留言——消息会发到我的邮箱。',
+        'cta.send': '发送消息 →',
+      }
+    };
+
+    // Store original English content
+    const originals = {};
+    document.querySelectorAll('[data-i18n]').forEach(el => {
+      originals[el.getAttribute('data-i18n')] = el.innerHTML;
+    });
+
+    function switchLang(lang) {
+      document.querySelectorAll('.lang-toggle button').forEach(btn => {
+        btn.classList.toggle('active', btn.textContent.trim() === (lang === 'en' ? 'EN' : '中文'));
+      });
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (lang === 'zh' && i18n.zh[key]) {
+          el.innerHTML = i18n.zh[key];
+        } else {
+          el.innerHTML = originals[key];
+        }
+      });
+
+      // Update placeholders
+      if (lang === 'zh') {
+        document.querySelector('[name="name"]').placeholder = '你的名字';
+        document.querySelector('[name="email"]').placeholder = '你的邮箱';
+        document.querySelector('[name="message"]').placeholder = '想聊什么？合作、Coffee Chat、或者随便打个招呼...';
+      } else {
+        document.querySelector('[name="name"]').placeholder = 'Your name';
+        document.querySelector('[name="email"]').placeholder = 'Your email';
+        document.querySelector('[name="message"]').placeholder = "What's on your mind? Collab idea, coffee chat, or just saying hi...";
+      }
+
+      document.documentElement.lang = lang === 'zh' ? 'zh-CN' : 'en';
+    }
   </script>
 
 </body>
